@@ -16,7 +16,7 @@
 	$UserID = $input['user_id'];
 	$Priority = $input['priority'];
 	$AssignmentID = $input['assignment_id'];
-	$cmid = $input['coursemodule_id'];
+	$cmid = $input['grade_item_id'];
 	if($SubmissionType == "LecturerSubmission"){
 		$RequiredDocuments = base64_decode($input['RequiredDocuments']); // Decode the Base64
 		$LecturerZip = base64_decode($input['LecturerZip']);		 // Decode the Base64
