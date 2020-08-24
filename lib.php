@@ -169,7 +169,7 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
   send_feedback( $url, $data);
 
   chdir('..');
-  remove_directory($UserID);
+//  remove_directory($UserID);
   chdir($olddir);
 
  }

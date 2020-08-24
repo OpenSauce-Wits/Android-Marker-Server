@@ -13,7 +13,7 @@ DirFiles=("RequiredDocuments.txt" "runTestOnEmulator.sh" "LecturerZip.zip" "Stud
 ################################################################################
 if [ "$ANDROID_SDK_ROOT" == "" ];
 then
-  echo "ERROR: No sdk root." >> $rootDir/log.txt
+  echo "Server:0:error:No sdk root." >> $rootDir/log.txt
   exit 1
 fi
 
@@ -56,7 +56,7 @@ numDevices=$(( $numDevices - 2))
 #php -r "\core\notification::warning(Number of devices: $numDevices);"
 if [ "0" == "$numDevices" ];
 then
-  echo "ERROR: No devices to run tests." >> $rootDir/log.txt
+  echo "Server:0:error:No devices to run tests." >> $rootDir/log.txt
   exit 1
 fi
 
@@ -97,11 +97,11 @@ FilesAreMissing=false
 for file in ${DirFiles[@]}
 do
  if [ ! -f "$file" ]; then
-  echo "ERROR: Could not find file: $file." >> $rootDir/log.txt
+  echo "Server:0:error:Could not find file: $file." >> $rootDir/log.txt
   FilesAreMissing=true
  fi
 done
-if FilesAreMissing; then
+if $FilesAreMissing; then
   exit 1
 fi
 
@@ -125,14 +125,14 @@ do
   if [ "$dir" == "" ];
   then
     # Should terminate script
-    echo "ERROR: $doc doesn't exist in lecturer submission." >> $rootDir/log.txt
+    echo "Server:0:error:$doc not found in submission." >> $rootDir/log.txt
     FilesAreMissing=true
   else
     ParentDirectories[${#ParentDirectories[@]}]="$(dirname "$dir")"
     rm -f "$dir"
   fi
 done
-if FilesAreMissing; then
+if $FilesAreMissing; then
   exit 1
 fi
 
@@ -154,14 +154,14 @@ do
   if [ "$dir" == "" ];
   then
     # Should terminate script
-    echo "ERROR: $doc does not exist in the student's zip." >> $rootDir/log.txt
+    echo "$doc:0:error:File not found." >> $rootDir/log.txt
     FilesAreMissing=true
   else
     cp -R "$dir" ${ParentDirectories[$count]}
     count=$(($count + 1))
   fi
 done
-if FilesAreMissing; then
+if $FilesAreMissing; then
   exit 1
 fi
 
