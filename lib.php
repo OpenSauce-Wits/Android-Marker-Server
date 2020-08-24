@@ -50,6 +50,28 @@ function extract_results_from_html($html, $result){
 		return $result;
 }
 
+function check_for_compilation_errors($logFile, $result){
+	$fp = fopen($logFile, "r+") or die("Unable to open report file!");
+	// Loop until we reach the end of the file.
+	while ($line = stream_get_line($fp, 1024 * 1024, "\n")) {
+	    	// Echo one line from the file.
+	    	if(substr_count($line,":") === 3){
+		    	$arr = explode(":",$line);
+		    	if(trim($arr[2]) == "error"){
+		    		$temp = array(
+		    		"filename" => basename($arr[0]),
+		    		"line_number" => $arr[1],
+		    		"error" => trim($arr[3])
+		    		);
+				  array_push( $result, $temp);
+			}
+		}
+	}
+	// Unset the file to call __destruct(), closing the file handle.
+	fclose($fp);
+	return $result;
+}
+
 function send_feedback( $url, $data){
   $s = curl_init();
   curl_setopt($s, CURLOPT_URL, $url);
@@ -108,26 +130,42 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
 
   // Make a view that shows build log
   // For some reason the sdk root is not passed into the script. So we need to pass it ourselves
-  print shell_exec('ANDROID_SDK_ROOT="/opt/Android/Sdk" bash MarkProject.sh > /dev/null 2>&1');
+  shell_exec('ANDROID_SDK_ROOT="/opt/Android/Sdk" bash MarkProject.sh > /dev/null 2>&1');
 
-  // Stores the results from all the shards in an array
-  $shardResults = array();
-  $shardCount = 0;
-  while(is_dir("$shardCount")){
-  	$shardResults = extract_results_from_html( "$shardCount/report.html", $shardResults);
-  	remove_directory("$shardCount");
-  	$shardCount+=1;
+  $errors = check_for_compilation_errors("log.txt", array());
+  if(sizeof($errors) !== 0){
+    // Update the Assignment Submission record
+    $data = array("feedbacktype" => "UpdateMark",
+    "submissiontype" => $SubmissionType,
+    "id" => $id,
+    "grade" => $cmid,
+    "userid" => $UserID,
+    "assignment" => $AssignmentID,
+    "results" => $errors,
+    "resulttype" => "errors"
+    );
   }
+  else{
+    // Stores the results from all the shards in an array
+    $shardResults = array();
+    $shardCount = 0;
+    while(is_dir("$shardCount")){
+      $shardResults = extract_results_from_html( "$shardCount/report.html", $shardResults);
+      remove_directory("$shardCount");
+      $shardCount+=1;
+    }
 
-  // Update the Assignment Submission record
-  $data = array("feedbacktype" => "UpdateMark",
-  "submissiontype" => $SubmissionType,
-  "id" => $id,
-  "grade" => $cmid,
-  "userid" => $UserID,
-  "assignment" => $AssignmentID,
-  "results" => $shardResults
-  );
+    // Update the Assignment Submission record
+    $data = array("feedbacktype" => "UpdateMark",
+    "submissiontype" => $SubmissionType,
+    "id" => $id,
+    "grade" => $cmid,
+    "userid" => $UserID,
+    "assignment" => $AssignmentID,
+    "results" => $shardResults,
+    "resulttype" => "tests"
+    );
+  }
   send_feedback( $url, $data);
 
   chdir('..');

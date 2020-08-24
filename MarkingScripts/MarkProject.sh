@@ -3,10 +3,17 @@
 # to be used for marking
 # It assumes there is already an emulator running in the adb
 
+# Declares Variables
+textFile="RequiredDocuments.txt"
+RequiredDocuments=()
+rootDir=$(pwd)
+androidProject=""
+DirFiles=("RequiredDocuments.txt" "runTestOnEmulator.sh" "LecturerZip.zip" "StudentZip.zip" "MarkProject.sh")
+
 ################################################################################
 if [ "$ANDROID_SDK_ROOT" == "" ];
 then
-  echo "No sdk root"
+  echo "ERROR: No sdk root." >> $rootDir/log.txt
   exit 1
 fi
 
@@ -49,15 +56,9 @@ numDevices=$(( $numDevices - 2))
 #php -r "\core\notification::warning(Number of devices: $numDevices);"
 if [ "0" == "$numDevices" ];
 then
-  echo "No devices"
+  echo "ERROR: No devices to run tests." >> $rootDir/log.txt
   exit 1
 fi
-
-# Declares Variables
-textFile="RequiredDocuments.txt"
-RequiredDocuments=()
-rootDir=$(pwd)
-androidProject=""
 
 ################################################################################
 # FUNCTIONS
@@ -68,7 +69,7 @@ androidProject=""
 clear_files () {
   for file in $(ls)
   do
-    if [ "$file" != "RequiredDocuments.txt" ] && [ "$file" != "Mark.php" ] && [ "$file" != "getHtmlResults.sh" ] && [ "$file" != "runTestOnEmulator.sh" ] && [ "$file" != "LecturerZip.zip" ] && [ "$file" != "StudentZip.zip" ] && [ "$file" != "MarkProject.sh" ] && [ "$file" != "SetupOfAndroidEmulator.txt" ];
+    if [[ ! " ${DirFiles[@]} " =~ " ${file} " ]];
     then
       rm -rf "$file"
     fi
@@ -79,7 +80,7 @@ clear_files () {
 open_project () {
   for file in $(ls)
   do
-    if [ "$file" != "RequiredDocuments.txt" ] && [ "$file" != "Mark.php" ] && [ "$file" != "getHtmlResults.sh" ] && [ "$file" != "runTestOnEmulator.sh" ] && [ "$file" != "LecturerZip.zip" ] && [ "$file" != "StudentZip.zip" ] && [ "$file" != "MarkProject.sh" ] && [ "$file" != "SetupOfAndroidEmulator.txt" ];
+    if [[ ! " ${DirFiles[@]} " =~ " ${file} " ]];
     then
     	androidProject="$file"
       cd "$file"
@@ -91,20 +92,30 @@ open_project () {
 # Starts by clearing all files that are not Required
 clear_files
 
+# Check that we have all the files that we require
+FilesAreMissing=false
+for file in ${DirFiles[@]}
+do
+ if [ ! -f "$file" ]; then
+  echo "ERROR: Could not find file: $file." >> $rootDir/log.txt
+  FilesAreMissing=true
+ fi
+done
+if FilesAreMissing; then
+  exit 1
+fi
+
 # Reads in the RequiredDocuments lines from the RequiredDocuments text file and
 # stores them in the RequiredDocuments array.
 while IFS= read -r line
 do
   RequiredDocuments[${#RequiredDocuments[@]}]="$line"
-  # echo "${RequiredDocuments[NumReqDocs]}"
 done < "$textFile"
-write "Required Documents Read"
 
 # Unzip the LecturerZip.zip
 unzip LecturerZip.zip >/dev/null
-write "Lecturer Project Extracted"
 
-# Checks if all the RequiredDocuments exist and delete them
+# Checks if all the RequiredDocuments exist and deletes them
 # Also stores the parent directories of the documnets
 dir=""
 ParentDirectories=()
@@ -114,16 +125,16 @@ do
   if [ "$dir" == "" ];
   then
     # Should terminate script
-    write "$doc doesn't exist. Please check RequiredDocuments.txt."
-    clear_files
-    exit 1
+    echo "ERROR: $doc doesn't exist in lecturer submission." >> $rootDir/log.txt
+    FilesAreMissing=true
   else
     ParentDirectories[${#ParentDirectories[@]}]="$(dirname "$dir")"
     rm -f "$dir"
   fi
 done
-write "Required Documents Deleted From Template"
-write "Required Documents Directories Extracted"
+if FilesAreMissing; then
+  exit 1
+fi
 
 # By now the documnets in RequiredDocuments.txt have been deleted.
 # Searching for them will only bring up the files in the StudentZip
@@ -133,7 +144,6 @@ mkdir StudentCode
 
 # Unzip the StudentZip.zip
 unzip StudentZip.zip -d StudentCode >/dev/null
-write "Student Code Extracted"
 
 # Checks if all the RequiredDocuments exist in the student's code and copies
 # them into the template.
@@ -144,31 +154,30 @@ do
   if [ "$dir" == "" ];
   then
     # Should terminate script
-    write "$doc doesn't exist in the student's zip. Please check StudentZip.zip"
-    clear_files
-    exit 1
+    echo "ERROR: $doc does not exist in the student's zip." >> $rootDir/log.txt
+    FilesAreMissing=true
   else
     cp -R "$dir" ${ParentDirectories[$count]}
     count=$(($count + 1))
   fi
 done
-write "Required Documents Copied From StudentZip"
+if FilesAreMissing; then
+  exit 1
+fi
 
 # Removes the Student's code folder
 rm -rf StudentCode
 
-write "Marking Project"
-
 open_project
 cd "$(dirname "$(find -name *\\gradlew)")"
 chmod +x gradlew
-bash gradlew assembleDebugAndroidTest
+bash gradlew assembleDebugAndroidTest 2> $rootDir/log.txt
 
 # could not change permissions of SDK root from server. All of them were denied
 #chmod -R +x $ANDROID_SDK_ROOT
 
 # Check that searches for ready emulators
-bash gradlew installDebug
+bash gradlew installDebug 2> $rootDir/log.txt
 
 # numDevices is the number of shards we have
 # looping through the list will give us the shard id for each emulator
@@ -194,5 +203,3 @@ done
 wait
 
 rm -rf "$androidProject"
-write "Report Generated"
-# basename "$filename" : strips away the previous directories
