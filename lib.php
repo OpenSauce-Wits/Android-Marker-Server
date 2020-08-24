@@ -100,9 +100,9 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
   // Update the Assignment Submission record
   $data = array("feedbacktype" => "UpdateStatus",
   "id" => $id,
-  "grade_item_id" => $cmid,
-  "user_id" => $UserID,
-  "assignment_id" => $AssignmentID,
+  "grade" => $cmid,
+  "userid" => $UserID,
+  "assignment" => $AssignmentID,
   "status" => "marking");
   send_feedback( $url, $data);
 
@@ -123,9 +123,9 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
   $data = array("feedbacktype" => "UpdateMark",
   "submissiontype" => $SubmissionType,
   "id" => $id,
-  "grade_item_id" => $cmid,
-  "user_id" => $UserID,
-  "assignment_id" => $AssignmentID,
+  "grade" => $cmid,
+  "userid" => $UserID,
+  "assignment" => $AssignmentID,
   "results" => $shardResults
   );
   send_feedback( $url, $data);

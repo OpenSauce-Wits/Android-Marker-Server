@@ -13,10 +13,10 @@
 
 
 	$SubmissionType = $input['submissiontype'];
-	$UserID = $input['user_id'];
+	$UserID = $input['userid'];
 	$Priority = $input['priority'];
-	$AssignmentID = $input['assignment_id'];
-	$cmid = $input['grade_item_id'];
+	$AssignmentID = $input['assignment'];
+	$cmid = $input['grade'];
 	if($SubmissionType == "LecturerSubmission"){
 		$RequiredDocuments = base64_decode($input['RequiredDocuments']); // Decode the Base64
 		$LecturerZip = base64_decode($input['LecturerZip']);		 // Decode the Base64
