@@ -9,6 +9,7 @@ RequiredDocuments=()
 rootDir=$(pwd)
 androidProject=""
 DirFiles=("RequiredDocuments.txt" "runTestOnEmulator.sh" "LecturerZip.zip" "StudentZip.zip" "MarkProject.sh")
+touch log.txt
 
 ################################################################################
 if [ "$ANDROID_SDK_ROOT" == "" ];
@@ -83,7 +84,7 @@ open_project () {
     if [[ ! " ${DirFiles[@]} " =~ " ${file} " ]];
     then
     	androidProject="$file"
-      cd "$file"
+      	cd "$file"
     fi
   done
 }
@@ -170,14 +171,14 @@ rm -rf StudentCode
 
 open_project
 cd "$(dirname "$(find -name *\\gradlew)")"
-chmod +x gradlew
-bash gradlew assembleDebugAndroidTest 2> $rootDir/log.txt
+#echo "$(pwd)"> $rootDir/log.txt
+gradle assembleDebugAndroidTest 2> $rootDir/log.txt
 
 # could not change permissions of SDK root from server. All of them were denied
 #chmod -R +x $ANDROID_SDK_ROOT
 
 # Check that searches for ready emulators
-bash gradlew installDebug 2> $rootDir/log.txt
+gradle installDebug 2> $rootDir/log.txt
 
 # numDevices is the number of shards we have
 # looping through the list will give us the shard id for each emulator

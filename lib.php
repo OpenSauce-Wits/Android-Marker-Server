@@ -86,8 +86,7 @@ function send_feedback( $url, $data){
 
 
   curl_setopt($s, CURLOPT_RETURNTRANSFER, 1);
-  $result = curl_exec($s);
-  shell_exec("write '$result'");
+  curl_exec($s);
   curl_close($s);
 }
 
@@ -130,8 +129,7 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
 
   // Make a view that shows build log
   // For some reason the sdk root is not passed into the script. So we need to pass it ourselves
-  shell_exec('ANDROID_SDK_ROOT="/opt/Android/Sdk" bash MarkProject.sh > /dev/null 2>&1');
-
+  shell_exec('bash MarkProject.sh > /dev/null 2>&1');
   $errors = check_for_compilation_errors("log.txt", array());
   if(sizeof($errors) !== 0){
     // Update the Assignment Submission record
@@ -171,6 +169,5 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
   chdir('..');
   remove_directory($UserID);
   chdir($olddir);
-
  }
 ?>
