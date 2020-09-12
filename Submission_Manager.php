@@ -1,5 +1,6 @@
 <?php
 
+	require_once("config.php");
 	require_once("lib.php");    // Include Library Functions
 
 	$inputJSON = file_get_contents('php://input');  // Get input from the client
@@ -27,7 +28,7 @@
 
 		$SubmissionsPath .= DIRECTORY_SEPARATOR. "LecturerSubmission";
 		if(is_dir($SubmissionsPath)){
-			remove_directory($SubmissionsPath);
+			deleteDirectory($SubmissionsPath);
 		}
 		create_directory($SubmissionsPath);
 
@@ -54,7 +55,7 @@
 
 		$SubmissionsPath .= DIRECTORY_SEPARATOR. $UserID;
 		if(is_dir($SubmissionsPath)){
-			remove_directory($SubmissionsPath);
+			deleteDirectory($SubmissionsPath);
 		}
 		create_directory($SubmissionsPath);
 
