@@ -16,7 +16,7 @@
   "userid" => $record['user_id'],
   "assignment" => $record['assignment_id']);
 
-  if($MarkType == "Build"){
+  if($MarkType == "Build"){ // Build the debug apk for the submission
     // Update the Assignment Submission record
     $data["feedbacktype"] = "UpdateStatus";
     $data["status"] = "building";
@@ -39,7 +39,7 @@
       chdir("..");
       deleteDirectory($UserID);
     }
-    else{
+    else{ // There were no errors
 
       $record['status'] = "Built";
 			$DB->update_record(ANDROID_SERVER_SUBMISSIONS_TABLE,$record,array('user_id'=>$UserID,'assignment_id'=>$AssignmentID));

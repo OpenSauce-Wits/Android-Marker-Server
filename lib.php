@@ -2,6 +2,7 @@
 
 require_once("config.php");
 
+// Initialize database for the marker
 $DB = new DatabaseHelper();
 
 class DatabaseHelper{
@@ -9,6 +10,7 @@ class DatabaseHelper{
 
   public function __construct() {
     global $CFG;
+    // Creates a mysqli database. We may use other database types based on server settings
     $this->mysqli = new mysqli($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname);
     // Check connection
     if ($this->mysqli -> connect_errno) {
@@ -47,13 +49,14 @@ class DatabaseHelper{
     if ($rows) {
       $count = 0;
     	while ($row = mysqli_fetch_array($result)) {
+        // removes integer keys from row results.
         foreach($row as $key => $value) {
           if($key == $count){
             unset($row[$key]);
             ++$count;
           }
         }
-
+        // stores data with string keys only
         array_push( $resultArray, $row);
     	}
     }
@@ -84,6 +87,7 @@ class DatabaseHelper{
 		    die("Adding record failed: ".mysqli_error());
         return false;
     }
+    // Returns the row that has just been inserted
     return $this->get_record($table, $Args)[0];
   }
 
@@ -238,7 +242,6 @@ function send_feedback( $url, $data){
 
   // Set the content type to application/json
   curl_setopt($s, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-
 
   curl_setopt($s, CURLOPT_RETURNTRANSFER, 1);
   curl_exec($s);

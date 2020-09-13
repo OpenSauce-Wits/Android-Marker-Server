@@ -1,12 +1,13 @@
 <?php
 
+// ams (android marker server) is the prefix of the server tables
 define('ANDROID_SERVER_SUBMISSIONS_TABLE','ams_submissions');
 define('ANDROID_SERVER_EMULATORS_TABLE','ams_emulators');
 
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
-
+// CFG holds the settings for the server
 $CFG->dbtype    = 'mysqli';
 $CFG->dblibrary = 'native';
 $CFG->dbhost    = 'localhost';
