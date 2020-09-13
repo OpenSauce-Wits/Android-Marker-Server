@@ -252,15 +252,6 @@ function build($SubmissionPath, $UserID, $AssignmentID){
     2 => array('pipe', 'w')  // stderr is a pipe the child will write to
   );
 
-  // Update the Assignment Submission record
-  $data = array("feedbacktype" => "UpdateStatus",
-  "id" => $record['mark_id'],
-  "grade" => $record['cmid'],
-  "userid" => $record['user_id'],
-  "assignment" => $record['assignment_id'],
-  "status" => "building");
-  send_feedback( $record['url'], $data);
-
   $execString = "sudo -E env \"".'PATH=$PATH'."\" php MarkAndroidProject.php 'Build' '$UserID' '$AssignmentID'";
 
   $process = proc_open($execString, $descriptorspec, $pipes);
@@ -270,9 +261,11 @@ function build($SubmissionPath, $UserID, $AssignmentID){
 }
 
 function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $SubmissionType, $cmid){
+  global $DB;
   // Copy Marking Scripts
   copy(dirname(__FILE__) . DIRECTORY_SEPARATOR . "MarkingScripts" . DIRECTORY_SEPARATOR . "MarkProject.sh", $SubmissionPath . DIRECTORY_SEPARATOR . "MarkProject.sh");
   copy(dirname(__FILE__) . DIRECTORY_SEPARATOR . "MarkingScripts" . DIRECTORY_SEPARATOR . "runTestOnEmulator.sh", $SubmissionPath . DIRECTORY_SEPARATOR . "runTestOnEmulator.sh");
+  copy(dirname(__FILE__) . DIRECTORY_SEPARATOR . "MarkingScripts" . DIRECTORY_SEPARATOR . "BuildProject.sh", $SubmissionPath . DIRECTORY_SEPARATOR . "BuildProject.sh");
   if($Priority !== -1){
     // Meaning this is a student submission
     // Only the Zip file exists in the folder
@@ -296,7 +289,7 @@ function mark( $SubmissionPath, $id, $UserID, $AssignmentID, $url, $Priority, $S
 
   $record = array();
   $record['status'] = "New";
-  $record['submission_path'] = $SubmissionsPath;
+  $record['submission_path'] = $SubmissionPath;
   $record['user_id'] = $UserID;
   $record['assignment_id'] = $AssignmentID;
   $record['url'] = $url;
