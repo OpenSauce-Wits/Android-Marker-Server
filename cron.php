@@ -1,7 +1,7 @@
 <?php
   require_once("lib.php");    // Include Library Functions
-
   // Check if a submission needs marking
+  
   $BuiltSubmissions = $DB->get_record(ANDROID_SERVER_SUBMISSIONS_TABLE,array('status'=>"Built"));
   if ($BuiltSubmissions && count($BuiltSubmissions)>0) {
     // Get list of available emulators
@@ -52,18 +52,21 @@
     			1 => array('pipe', 'w'), // stdout is a pipe that the child will write to
     			2 => array('pipe', 'w')  // stderr is a pipe the child will write to
     		);
-
-    		$execString = "sudo -E env \"".'PATH=$PATH'."\" php MarkAndroidProject.php 'Mark' '".$value['user_id']."' '".$value['assignment_id']."' '".$emulator['emulator_id']."'";
-
+    		if($argv[1] !== NULL && $argv[1] === "cron"){
+    			$execString = 'ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT '.'PATH=$PATH'." php MarkAndroidProject.php 'Mark' '".$value['user_id']."' '".$value['assignment_id']."' '".$emulator['emulator_id']."'";
+    		}
+    		else{
+    			$execString = "sudo -E env \"".'PATH=$PATH'."\" php MarkAndroidProject.php 'Mark' '".$value['user_id']."' '".$value['assignment_id']."' '".$emulator['emulator_id']."'";
+    		}
     		$process = proc_open($execString, $descriptorspec, $pipes);
     		if (!is_resource($process)) {
     			throw new Exception('bad_program could not be started.');
     		}
-        else{
-          $AvailableEmulators[$EmulatorKey]['in_use'] = "true";
-    			$DB->update_record(ANDROID_SERVER_EMULATORS_TABLE,$AvailableEmulators[$EmulatorKey],array('id'=>$AvailableEmulators[$EmulatorKey]['id']));
-          unset($BuiltSubmissions[$key]);
-        }
+		else{
+		  $AvailableEmulators[$EmulatorKey]['in_use'] = "true";
+	    			$DB->update_record(ANDROID_SERVER_EMULATORS_TABLE,$AvailableEmulators[$EmulatorKey],array('id'=>$AvailableEmulators[$EmulatorKey]['id']));
+		  unset($BuiltSubmissions[$key]);
+		}
         break;
       }
     }

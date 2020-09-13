@@ -22,7 +22,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'http://localhost/9999';
-$CFG->dataroot  = '~/home/thando/Desktop/Android_Marker_Plugin/Android-Marker-Server';
+$CFG->dataroot  = '/home/thando/Desktop/Android_Marker_Plugin/Android-Marker-Server';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;

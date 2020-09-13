@@ -78,7 +78,7 @@ done
 for comm in "${ParallelCommands[@]}"
 do
  cd "$rootDir"
- bash runTestOnEmulator.sh $comm 3>&2 &
+ ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT PATH=$PATH bash runTestOnEmulator.sh $comm 3>&2 &
 done
 
 # The wait makes sure that the computer doesn't carry on with this script before all the tasks are complete

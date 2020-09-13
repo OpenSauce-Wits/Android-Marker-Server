@@ -61,7 +61,7 @@
     $record['status'] = "Marking";
 		$DB->update_record(ANDROID_SERVER_SUBMISSIONS_TABLE,$record,array('user_id'=>$UserID,'assignment_id'=>$AssignmentID));
 
-    shell_exec("bash MarkProject.sh '".$argv[4]."'");
+    shell_exec('sudo ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT'.' PATH=$PATH'." bash MarkProject.sh '".$argv[4]."'");
 
     $record['status'] = "Marked";
 		$DB->update_record(ANDROID_SERVER_SUBMISSIONS_TABLE,$record,array('user_id'=>$UserID,'assignment_id'=>$AssignmentID));
