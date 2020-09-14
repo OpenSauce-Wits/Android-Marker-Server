@@ -82,7 +82,7 @@
           foreach (explode(" ", $SubmissionEmulatorString) as $SESvalue) {
             if($SESvalue == "") continue;
             foreach($AvailableEmulators as $UpdateKey => $UpdateEm){
-              if($UpdateEm['emulator_id'] !== $SESvalue) continue;
+              if("'".$UpdateEm['emulator_id']."'" !== $SESvalue) continue;
               $AvailableEmulators[$UpdateKey]['in_use'] = "true";
     	    		$DB->update_record(ANDROID_SERVER_EMULATORS_TABLE,$AvailableEmulators[$UpdateKey],array('id'=>$AvailableEmulators[$UpdateKey]['id']));
             }
