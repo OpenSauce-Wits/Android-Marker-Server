@@ -4,6 +4,9 @@ build_settings:
     - "vendor"
     - "bin"
     - "app"
+install:
+  - "composer require --dev phpunit/phpunit ^7.0"
+  - "composer require --dev phpunit/dbunit"
 setup:
   composer:
     action: "install"
