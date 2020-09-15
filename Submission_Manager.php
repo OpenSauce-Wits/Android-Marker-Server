@@ -1,5 +1,6 @@
 <?php
 
+	require_once("config.php");
 	require_once("lib.php");    // Include Library Functions
 
 	$inputJSON = file_get_contents('php://input');  // Get input from the client
@@ -27,19 +28,21 @@
 
 		$SubmissionsPath .= DIRECTORY_SEPARATOR. "LecturerSubmission";
 		if(is_dir($SubmissionsPath)){
-			remove_directory($SubmissionsPath);
+			// Delete existing Lecturer Submission
+			deleteDirectory($SubmissionsPath);
 		}
 		create_directory($SubmissionsPath);
 
 		file_put_contents( $SubmissionsPath.DIRECTORY_SEPARATOR."RequiredDocuments.txt", $RequiredDocuments);
 		file_put_contents($SubmissionsPath.DIRECTORY_SEPARATOR."LecturerZip.zip", $LecturerZip);
 
+		// Create directory for marking
 		$SubmissionsPath .= DIRECTORY_SEPARATOR. $UserID;
 		create_directory($SubmissionsPath);
 
 		file_put_contents( $SubmissionsPath.DIRECTORY_SEPARATOR."RequiredDocuments.txt", $RequiredDocuments);
 		file_put_contents($SubmissionsPath.DIRECTORY_SEPARATOR."LecturerZip.zip", $LecturerZip);
-            	//Creates a psuedo student submission
+    //Creates a psuedo student submission
 		file_put_contents($SubmissionsPath.DIRECTORY_SEPARATOR."StudentZip.zip", $LecturerZip);
 	}
 	else if($SubmissionType == "StudentSubmission"){
@@ -54,7 +57,8 @@
 
 		$SubmissionsPath .= DIRECTORY_SEPARATOR. $UserID;
 		if(is_dir($SubmissionsPath)){
-			remove_directory($SubmissionsPath);
+			// Delete existing student submission
+			deleteDirectory($SubmissionsPath);
 		}
 		create_directory($SubmissionsPath);
 

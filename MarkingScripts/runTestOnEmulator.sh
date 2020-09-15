@@ -1,5 +1,4 @@
 #!/bin/bash
-
 rootDir=$(pwd)
 
 # Makes the directory where the report will be stored
