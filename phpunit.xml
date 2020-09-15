@@ -10,6 +10,13 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="false" addUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">./app/Database</directory>
+            <directory suffix=".php">./app/Models</directory>
+        </whitelist>
+    </filter>
     <php>
         <var name="DB_DSN" value="mysql:dbname=testDB;host=localhost"></var>
         <var name="DB_USER" value="moodledude"></var>

@@ -15,6 +15,7 @@ class ComposerStaticInitea0a25d9a41fa443525f28d433a599c4
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+            'pcov\\Clobber\\' => 13,
         ),
         'W' => 
         array (
@@ -28,6 +29,7 @@ class ComposerStaticInitea0a25d9a41fa443525f28d433a599c4
         'P' => 
         array (
             'Prophecy\\' => 9,
+            'PhpParser\\' => 10,
         ),
         'D' => 
         array (
@@ -47,6 +49,10 @@ class ComposerStaticInitea0a25d9a41fa443525f28d433a599c4
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
+        'pcov\\Clobber\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pcov/clobber/src/pcov/clobber',
+        ),
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
@@ -62,6 +68,10 @@ class ComposerStaticInitea0a25d9a41fa443525f28d433a599c4
         'Prophecy\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
+        'PhpParser\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

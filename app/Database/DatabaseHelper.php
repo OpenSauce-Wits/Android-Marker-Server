@@ -85,13 +85,6 @@ class DatabaseHelper
                 $moreThanOne = true;
             }
         }
-        echo "\n";
-        print_r($keys);
-        echo "\n";
-        echo "\n";
-        print_r($values);
-        echo "\n";
-        echo "\n";
         $sql = "INSERT INTO $table ($keys) VALUES($values)";
         $result = mysqli_query($this->mysqli, $sql);
         if (!$result) {
@@ -102,7 +95,30 @@ class DatabaseHelper
         // Returns the row that has just been inserted
         return $this->get_record($table, $Args)[0];
     }
+    public function count_records( $table, $Args){
+        $sql="SELECT * FROM $table";
+        $sql = $this->add_args($sql,$Args);
+        $result = mysqli_query($this->mysqli,$sql);
+        if (!$result){
+//            die("Database access failed: " . mysqli_error());
+            echo "Problem";
+        }
+        return mysqli_num_rows($result);
+    }
 
+
+    public function delete_records( $table, $Args){
+        $sql="DELETE FROM $table";
+        $sql = $this->add_args($sql,$Args);
+        $result = mysqli_query($this->mysqli,$sql);
+        if (!$result){
+//            die("Deleting record failed: " . mysqli_error());
+            //output error message if query execution failed
+            echo "Deletion Failed";
+            return false;
+        }
+        return true;
+    }
 
     public function get_connection_message()
     {
@@ -110,6 +126,7 @@ class DatabaseHelper
     }
 }
 
-$db = new DatabaseHelper();
-$result = $db->insert_record("ams_emulators", "1 JHSDAFAN4154252 device false");
-echo $result;
+//$db = new DatabaseHelper();/
+//echo $db->count_records("ams_emulators",array('id >='=>2));
+//$result = $db->insert_record("ams_emulators", array('id' => 3, 'emulator_id' => "ABCA4C15903451915", 'state' => 'device', 'in_use' => 'false'));
+//print_r($result);

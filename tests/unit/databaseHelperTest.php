@@ -41,11 +41,11 @@ class developerHelperTest extends TestCase
         return $this->createFlatXMLDataSet('./tests/fixtures/ams_emulators_fixture.xml');
     }
 
-    public function testRowCount()
-    {
-
-        $this->assertSame(2, $this->getConnection()->getRowCount('ams_emulators'), 'Pre-Condition');
-    }
+//    public function testRowCount()
+//    {
+//
+//        $this->assertSame(3, $this->getConnection()->getRowCount('ams_emulators'), 'Pre-Condition');
+//    }
 
     /** @test */
     public function check_that_adding_emulators_functions()
@@ -60,12 +60,40 @@ class developerHelperTest extends TestCase
         $database = new DatabaseHelper();
         $records = $database->get_record($this->table_name);
         $table = $this->createFlatXMLDataSet($this->xml_file)->getTable($this->table_name);
-        $row_count = $this->getConnection()->getRowCount($this->table_name);
-        for ($x = 0; $x < $row_count; $x++) {
-            $this->assertEquals($table->getValue($x,"emulator_id"),$records[$x]['emulator_id']);
-        }
+        $this->assertEquals($table->getValue(0, 'emulator_id'), $records[0]['emulator_id']);
+        $this->assertEquals($table->getValue(1, 'emulator_id'), $records[1]['emulator_id']);
 
+    }
 
+    /** @test */
+    public function check_that_insert_record_functions()
+    {
+        $database = new DatabaseHelper();
+        $result = $database->insert_record('ams_emulators', array('id' => 3, 'emulator_id' => "ABCA4C15903451915", 'state' => 'device', 'in_use' => 'false'));
+        $queryTable = $this->getConnection()->createQueryTable('ams_emulators', "SELECT * FROM ams_emulators");
+        $expectedTable = $this->createFlatXMLDataSet("./tests/fixtures/ams_emulators_expected.xml")->getTable('ams_emulators');
+        $this->assertTablesEqual($expectedTable, $queryTable);
+
+    }
+
+    /** @test */
+    public function check_that_record_deleted()
+    {
+        $database = new DatabaseHelper();
+        $result = $database->delete_records('ams_emulators', array('id' => 3));
+        $queryTable = $this->getConnection()->createQueryTable("ams_emulators", "SELECT * FROM ams_emulators");
+        $expectedTable = $this->createFlatXMLDataSet("./tests/fixtures/ams_emulators_fixture.xml")->getTable('ams_emulators');
+        $this->assertTablesEqual($expectedTable, $queryTable);
+    }
+
+    /** @test */
+    public function check_that_record_updated()
+    {
+        $database = new DatabaseHelper();
+        $result = $database->delete_records('ams_emulators', array('id' => 3));
+        $queryTable = $this->getConnection()->createQueryTable("ams_emulators", "SELECT * FROM ams_emulators");
+        $expectedTable = $this->createFlatXMLDataSet("./tests/fixtures/ams_emulators_fixture.xml")->getTable('ams_emulators');
+        $this->assertTablesEqual($expectedTable, $queryTable);
     }
     /**
      * Tip
