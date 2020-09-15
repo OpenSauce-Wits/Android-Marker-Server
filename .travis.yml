@@ -1,8 +1,7 @@
 language: php
 
 before_script:
-  - travis_retry composer require phpunit/phpunit ^7.0
-  - travis_retry composer require phpunit/dbunit
+  - composer self-update
 
 script:
   - vendor/bin/phpunit
