@@ -1,7 +1,6 @@
 {
     "require": {
         "phpunit/dbunit": "^4.0",
-        "pcov/clobber": "^2.0"
     },
     "autoload":{
       "psr-4":{
