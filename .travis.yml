@@ -2,6 +2,10 @@ language: php
 
 before_script:
   - composer self-update
+  - pecl install pcov
+  - composer require pcov/clobber
+  - composer require --dev phpunit/phpunit ^7.0
+  - composer require --dev phpunit/dbunit
 
 script:
   - vendor/bin/phpunit
