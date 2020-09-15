@@ -1,15 +1,8 @@
-
 language: php
 
-php:
-  - 7.2
-  - 7.3
-  - 7.4
-
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --prefer-source --dev
-  - travis_retry composer require --dev phpunit/phpunit ^7.0
-  - travis_retry composer require --dev phpunit/dbunit
+  - travis_retry composer require phpunit/phpunit ^7.0
+  - travis_retry composer require phpunit/dbunit
+
 script:
   - vendor/bin/phpunit
