@@ -18,7 +18,7 @@ if [ "$emulator" == "" ];
 then
  cd $ANDROID_SDK_ROOT/tools
  echo "Emulator $1 is running"
- emulator @$1 -no-window -no-audio -no-snapshot -wait-for-debugger
+ emulator @$1 -no-window -no-audio -no-snapshot
 else
  echo "Emulator $emulator is already running."
  exit 1
