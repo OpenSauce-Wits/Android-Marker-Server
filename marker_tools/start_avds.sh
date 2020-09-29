@@ -1,7 +1,25 @@
 #!/bin/bash
+if [ "$ANDROID_SDK_ROOT" == "" ];
+then
+  echo "No sdk root ($ANDROID_SDK_ROOT)."
+  exit 1
+fi
 
-cd "C:/Users/Olebogeng Maleho/AppData/Local/Android/Sdk/tools/bin"
-read -p "Enter the name of the desired AVD : " AVD_NAME
+emulator=""
+for device in $(adb devices)
+do
+ if [ "$device" == "$1" ];
+ then
+ 	emulator=$device
+ fi
+done
 
-emulator @$AVD_NAME -no-window -no-audio
-exec $SHELL
+if [ "$emulator" == "" ];
+then
+ cd $ANDROID_SDK_ROOT/tools
+ echo "Emulator $1 is running"
+ emulator @$1 -no-window -no-audio -no-snapshot -wait-for-debugger
+else
+ echo "Emulator $emulator is already running."
+ exit 1
+fi

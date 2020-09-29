@@ -1,9 +1,20 @@
 #!/bin/bash
-
-read -p "Enter the number of the emulators you want switched off: " no_of_emulators
-
-for i in {1..$no_of_emulators}
+emulator=""
+for device in $(adb devices)
 do
-   read -p "Enter the ID of the emulator you want switched off: " emulator
-   adb -s $emulator emu kill 
+ if [ "$device" == "$1" ];
+ then
+ 	echo $device
+ 	emulator=$device
+ fi
 done
+
+if [ "$emulator" == "" ];
+then
+ exit 1
+else
+ adb -s $emulator emu kill 
+ rm ~/.android/avd/$emulator.avd/*.lock
+ echo "Emulator $emulator has been stopped."
+fi
+
