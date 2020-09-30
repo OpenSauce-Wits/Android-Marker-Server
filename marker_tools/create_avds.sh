@@ -1,8 +1,14 @@
 #!/bin/bash
 
-#You can get targetID by running avdmanager list
+if [ "$ANDROID_SDK_ROOT" == "" ];
+then
+  echo "No sdk root ($ANDROID_SDK_ROOT)."
+  exit 1
+fi
 
-read -p "Provide a name for your new emulator: " AVD_NAME
-read -p "Provide the target id for your emulator: " targetID
+cd $ANDROID_SDK_ROOT/tools/bin
 
-avdmanager create avd -n $AVD_NAME -d $targetID -k "system-images;android-29;google_apis;x86" 
+# $1 AVD_NAME
+# $2 target id 
+
+avdmanager create avd -n $1 -d $2 -k "system-images;android-29;google_apis;x86" 

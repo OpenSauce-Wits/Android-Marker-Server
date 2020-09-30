@@ -22,11 +22,17 @@
     // Check if any of them are free
     $EmulatorQuery = $DB->get_record(ANDROID_SERVER_EMULATORS_TABLE);
     if($EmulatorQuery && count($EmulatorQuery)>0){
+      foreach ($EmulatorQuery as $EmulatorQueryKey => $value) {
+        $value['state'] = "offline";
+        $DB->update_record(ANDROID_SERVER_EMULATORS_TABLE,$value,array('id'=>$value['id']));
+      }
       foreach($AvailableEmulators as $AvailableEmulatorsKey => $emulator){
         $found = false;
         foreach ($EmulatorQuery as $EmulatorQueryKey => $value) {
           if($value['emulator_id'] === $emulator['emulator_id']){
               $found = true;
+              $value['state'] = "device";
+              $DB->update_record(ANDROID_SERVER_EMULATORS_TABLE,$value,array('id'=>$value['id']));
               $AvailableEmulators[$AvailableEmulatorsKey]['id'] = $value['id'];
               if ($value['in_use'] === "true") {
                 unset($AvailableEmulators[$AvailableEmulatorsKey]);
