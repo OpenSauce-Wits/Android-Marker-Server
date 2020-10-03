@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <ams_emulators id="1" emulator_id="WCYC4C18809001072" state="device" in_use="false"></ams_emulators>
+    <ams_emulators id="2" emulator_id="ZBYA4C14405981207" state="device" in_use="true"></ams_emulators>
+</dataset>

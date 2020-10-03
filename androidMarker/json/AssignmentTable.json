@@ -1,0 +1,79 @@
+[
+  {
+    "assignmentID": 1,
+    "assignmentName": "Lab 3",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 2,
+    "assignmentName": "Lab 2",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 3,
+    "assignmentName": "Lab 3",
+    "status": "marking",
+    "priorityClass": 3,
+    "assessor": "Dr Klein"
+  },
+  {
+    "assignmentID": 4,
+    "assignmentName": "Lab 2",
+    "status": "marking",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 5,
+    "assignmentName": "Test 2",
+    "status": "unmarked",
+    "priorityClass": 3,
+    "assessor": "Dr Klein"
+  },
+  {
+    "assignmentID": 6,
+    "assignmentName": "Lab 3",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 7,
+    "assignmentName": "Test 1",
+    "status": "unmarked",
+    "priorityClass": 3,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 8,
+    "assignmentName": "Test 1",
+    "status": "marking",
+    "priorityClass": 1,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 9,
+    "assignmentName": "Lab 2",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Klein"
+  },
+  {
+    "assignmentID": 10,
+    "assignmentName": "Lab 3",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  },
+  {
+    "assignmentID": 11,
+    "assignmentName": "Lab 3",
+    "status": "unmarked",
+    "priorityClass": 5,
+    "assessor": "Dr Ranchod"
+  }
+]
