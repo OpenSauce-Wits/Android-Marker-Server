@@ -8,9 +8,9 @@ define("SUBMISSION","SubmissionTable.json");
 $location = "http://127.0.0.1:4040";
 global $CFG;
 $emulators = new FileManager($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname,constant("AMS_EMULATORS"),constant("EMULATOR"));
-//$submission = new FileManager($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname,constant("AMS_SUBMISSION"),constant("SUBMISSION"));
+$submission = new FileManager($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname,constant("AMS_SUBMISSION"),constant("SUBMISSION"));
 $emulators->createJSONFile("json");
-//$submission->createJSONFile("json");
+$submission->createJSONFile("json");
 //header("Location: {$location}");
 //die();
 ?>

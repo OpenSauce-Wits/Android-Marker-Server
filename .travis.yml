@@ -22,8 +22,11 @@ before_script:
   - mysql -u root -e "GRANT ALL ON testDB.* TO 'moodledude'@'localhost';"
   - mysql -u root -e "SHOW DATABASES"
   - mysql -u root -e "USE testDB;CREATE TABLE ams_emulators(id int NOT NULL AUTO_INCREMENT,emulator_id varchar(100) DEFAULT NULL,state varchar(100) DEFAULT NULL,in_use varchar(10) DEFAULT NULL,PRIMARY KEY (id));"
+  - mysql -u root -e "USE testDB;CREATE TABLE ams_submissions(user_id INT NOT NULL AUTO_INCREMENT,assignment INT NOT NULL ,status VARCHAR(20),submission_type VARCHAR(20),priority INT,PRIMARY KEY (user_id));"
   - mysql -u root -e "USE testDB;DESC ams_emulators"
+  - mysql -u root -e "USE testDB;DESC ams_submissions"
   - mysql -u root -e "USE testDB;INSERT INTO ams_emulators(emulator_id, state, in_use) VALUES ('WCYC4C18809001072','device','false'),('ZBYA4C14405981207','device','true');"
+  - mysql -u root -e "USE testDB;INSERT INTO ams_submissions(assignment,status,submission_type,priority) VALUES (1,'New','Student',1),(1,'New','Student',1);"
   - mkdir -p build/logs
   - curl -s https://getcomposer.org/installer | php
   - travis_retry composer self-update
