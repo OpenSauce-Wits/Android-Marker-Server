@@ -5,4 +5,5 @@ A user friendly place to view marking progress by assignment, or to check the st
 
 # Run Server
 > cd androidMarker/
+>
 > $ php -S 127.0.0.1:4040
