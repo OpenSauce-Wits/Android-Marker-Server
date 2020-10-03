@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601734385">
-  <project timestamp="1601734385">
+<coverage generated="1601734257">
+  <project timestamp="1601734257">
     <package name="androidMarker">
       <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/DatabaseHelper.php">
         <class name="androidMarker\DatabaseHelper" namespace="androidMarker">
@@ -326,9 +326,11 @@
       <line num="8" type="stmt" count="0"/>
       <line num="9" type="stmt" count="0"/>
       <line num="10" type="stmt" count="0"/>
+      <line num="11" type="stmt" count="0"/>
       <line num="12" type="stmt" count="0"/>
-      <metrics loc="16" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="9" coveredelements="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <metrics loc="16" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="11" coveredelements="0"/>
     </file>
-    <metrics files="8" loc="588" ncloc="502" classes="6" methods="37" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="245" coveredstatements="206" elements="282" coveredelements="234"/>
+    <metrics files="8" loc="588" ncloc="506" classes="6" methods="37" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="247" coveredstatements="206" elements="284" coveredelements="234"/>
   </project>
 </coverage>
