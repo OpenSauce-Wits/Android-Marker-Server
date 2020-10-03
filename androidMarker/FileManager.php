@@ -51,11 +51,11 @@ class FileManager
 
     public function createJSONFile($path=null)
     {
-        $pathname = ($path==null) ? $this->getJSONName() : $path.DIRECTORY_SEPARATOR.$this->getJSONName();
+        $pathname = ($path==null) ? $this->getJSONName() : dirname(__FILE__).DIRECTORY_SEPARATOR.$path.DIRECTORY_SEPARATOR.$this->getJSONName();
         if(file_exists($pathname)){
             unlink($pathname);
         }
-        $fp = fopen($pathname, 'w');
+        $fp = fopen("{$pathname}", 'w');
         fwrite($fp, $this->generateEncodedJSON());
         fclose($fp);
     }

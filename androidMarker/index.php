@@ -11,6 +11,6 @@ $emulators = new FileManager($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname
 $submission = new FileManager($CFG->dbhost,$CFG->dbuser,$CFG->dbpass,$CFG->dbname,constant("AMS_SUBMISSION"),constant("SUBMISSION"));
 $emulators->createJSONFile("json");
 $submission->createJSONFile("json");
-header("Location: {$location}/index.html");
-die();
+//header("Location: {$location}");
+//die();
 ?>

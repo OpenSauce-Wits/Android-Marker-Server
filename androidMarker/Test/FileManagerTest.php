@@ -30,7 +30,7 @@ class FileManagerTest extends TestCase
         $this->databaseValue = array('id' => 3, 'emulator_id' => "ABCA4C15903451915", 'state' => 'device', 'in_use' => 'false');
         $this->encodedJSON = '[{"id":1,"emulator_id":"WCYC4C18809001072","state":"device","in_use":"false"},{"id":2,"emulator_id":"ZBYA4C14405981207","state":"device","in_use":"true"}]';
         $this->jsonName = "EmulatorsTable.json";
-        $this->pathName = __DIR__.DIRECTORY_SEPARATOR."../json";
+        $this->pathName = dirname(__FILE__).DIRECTORY_SEPARATOR."../json";
     }
 
 
@@ -51,7 +51,7 @@ class FileManagerTest extends TestCase
         // TODO: Implement getDataSet() method.
         return $this->createFlatXMLDataSet($this->fixtures);
     }
-
+//
     public function testGetConnectMessage()
     {
         $FileManager = new FileManager($this->dbhost,$this->dbuser,$this->dbpass,$this->dbname,$this->tableName,$this->jsonName);
@@ -67,7 +67,7 @@ class FileManagerTest extends TestCase
     }
     public function testCreateJSONFileWorks(){
         $FileManager = new FileManager($this->dbhost,$this->dbuser,$this->dbpass,$this->dbname,$this->tableName,$this->jsonName);
-        $FileManager->createJSONFile($this->pathName);
-        $this->assertFileExists($this->pathName.DIRECTORY_SEPARATOR.$this->jsonName);
+        $FileManager->createJSONFile();
+        $this->assertFileExists($this->jsonName);
     }
 }
