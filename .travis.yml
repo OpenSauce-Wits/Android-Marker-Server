@@ -3,7 +3,7 @@ services:
   - mysql
 branches:
   only:
-    - version1.0
+    - master
 env:
   MYSQL_ROOT_PASSWORD: root
 
