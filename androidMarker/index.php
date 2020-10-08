@@ -1,7 +1,6 @@
 <?php
 namespace androidMarker;
 require_once('FileManager.php');
-//require_once('config.php');
 define("EMULATOR","EmulatorsTable.json");
 define("SUBMISSION","SubmissionTable.json");
 $location = "http://127.0.0.1:4040";
