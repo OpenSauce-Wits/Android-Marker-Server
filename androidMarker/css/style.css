@@ -1,0 +1,165 @@
+
+
+li a:hover{
+    background-color: rgba(69, 93, 103, 0.197);
+    color: white;
+}
+.active{
+    background-color:skyblue;
+    color: black;
+}
+
+
+/*CSS for the main sections, to make them uniform */
+.wrapper .main_content{
+    width: 100%;
+    margin-left: 150px;
+}
+
+.wrapper .main_content .header{
+    padding: 20px;
+    background: #fff;
+    color: #656464;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.wrapper .main_content .info{
+    margin: 20px;
+    color: #656464;
+    line-height: 25px;
+}
+
+.wrapper .main_content .info div{
+    margin-bottom: 20px;
+}
+
+body {
+    margin-left: 0%;
+    margin-top: 0%;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    line-height: 50px;
+    background-color:#eee;
+}
+
+header * {
+    display: inline-block;
+    height: 50px;
+}
+
+header ul {
+    padding: 0;
+}
+
+header li {
+    margin-left: 20px;
+}
+
+section {
+    height: 100vh;
+    border: 1px solid black;
+    display: flex;
+    margin-left: 10%;
+    margin-top: 10%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#Assignments .profile-img {
+    width: 300px;
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+}
+
+/* CSS for the side navigation bar */
+.wrapper{
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar{
+  width: 150px;
+  height: 100%;
+  background:  #f1f1f1;
+  padding: 30px 0px;
+  position: fixed;
+}
+
+.wrapper .sidebar ul li{
+    list-style-type: none;
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }    
+  
+  .wrapper .sidebar ul li a{
+    display: block;
+    color: #000;
+    padding: 7px 0px;
+    text-decoration: none;
+    text-align: left;
+  }
+
+/* Table formatting */
+.showData {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+  }
+  
+  .showData thead tr {
+    background-color: #6e6f6f;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .showData th,
+  .showData td {
+    padding: 12px 15px;
+  }
+  
+  .showData tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .showData tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .showData tbody tr:last-of-type {
+    border-bottom: 2px solid #6e6f6f;
+  }
+  
+  .showData tbody tr.active-row {
+    font-weight: bold;
+    color: #6e6f6f;
+  }
+
+  /*Button  formatting*/
+  button{
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 2.5;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.18);
+  }
