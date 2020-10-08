@@ -85,9 +85,9 @@ class lib
 require_once("config.php");
 
 // Initialize database for the marker
-$DB = new DatabaseHelper();
+$DB = new DatabaseHelpers();
 
-class DatabaseHelper{
+class DatabaseHelpers{
   private $mysqli;
 
   public function __construct() {
