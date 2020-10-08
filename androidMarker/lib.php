@@ -82,7 +82,7 @@ class lib
     }
 }
 
-require_once("config.php");
+//require_once("config.php");
 
 // Initialize database for the marker
 $DB = new DatabaseHelper();
