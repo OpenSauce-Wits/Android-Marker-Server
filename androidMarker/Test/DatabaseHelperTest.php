@@ -55,7 +55,7 @@ class DatabaseHelperTest extends TestCase
     public function testConnectionMessageReturns()
     {
 
-        $database = new DatabaseHelper($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
+        $database = new \androidMarker\DatabaseHelper($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
         $this->assertEquals("Success", $database->getConnectionMessage());
         $this->assertNotEquals("Failure", $database->getConnectionMessage());
     }

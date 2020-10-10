@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601734257">
-  <project timestamp="1601734257">
+<coverage generated="1602308018">
+  <project timestamp="1602308018">
     <package name="androidMarker">
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/DatabaseHelper.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/DatabaseHelper.php">
         <class name="androidMarker\DatabaseHelper" namespace="androidMarker">
           <metrics complexity="22" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="47" elements="59" coveredelements="49"/>
         </class>
@@ -67,7 +67,7 @@
         <line num="144" type="stmt" count="4"/>
         <metrics loc="152" ncloc="115" classes="1" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="47" elements="59" coveredelements="49"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/FileManager.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/FileManager.php">
         <class name="androidMarker\FileManager" namespace="androidMarker">
           <metrics complexity="9" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="29" coveredelements="29"/>
         </class>
@@ -104,7 +104,7 @@
         <line num="61" type="stmt" count="1"/>
         <metrics loc="66" ncloc="63" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="23" elements="31" coveredelements="29"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/lib.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/lib.php">
         <class name="androidMarker\lib" namespace="androidMarker">
           <metrics complexity="12" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="40" coveredelements="36"/>
         </class>
@@ -152,7 +152,7 @@
       </file>
     </package>
     <package name="androidMarker\Test">
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/DatabaseHelperTest.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/Test/DatabaseHelperTest.php">
         <class name="androidMarker\Test\DatabaseHelperTest" namespace="androidMarker\Test">
           <metrics complexity="9" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="38" elements="48" coveredelements="44"/>
         </class>
@@ -206,7 +206,7 @@
         <line num="92" type="stmt" count="1"/>
         <metrics loc="94" ncloc="86" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="38" elements="48" coveredelements="44"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/FileManagerTest.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/Test/FileManagerTest.php">
         <class name="androidMarker\Test\FileManagerTest" namespace="androidMarker\Test">
           <metrics complexity="8" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="37" coveredelements="37"/>
         </class>
@@ -247,9 +247,9 @@
         <line num="70" type="stmt" count="1"/>
         <line num="71" type="stmt" count="1"/>
         <line num="72" type="stmt" count="1"/>
-        <metrics loc="72" ncloc="62" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="37" coveredelements="37"/>
+        <metrics loc="72" ncloc="64" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="37" coveredelements="37"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/libTest.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/Test/libTest.php">
         <class name="androidMarker\Test\libTest" namespace="androidMarker\Test">
           <metrics complexity="8" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="35" elements="43" coveredelements="39"/>
         </class>
@@ -299,7 +299,7 @@
         <metrics loc="76" ncloc="76" classes="1" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="35" elements="43" coveredelements="39"/>
       </file>
     </package>
-    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/config.php">
+    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/config.php">
       <line num="7" type="stmt" count="0"/>
       <line num="9" type="stmt" count="0"/>
       <line num="10" type="stmt" count="0"/>
@@ -317,7 +317,7 @@
       <line num="30" type="stmt" count="0"/>
       <metrics loc="30" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="15" coveredelements="0"/>
     </file>
-    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/index.php">
+    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/version2/androidMarker/index.php">
       <line num="3" type="stmt" count="0"/>
       <line num="4" type="stmt" count="0"/>
       <line num="5" type="stmt" count="0"/>
@@ -329,8 +329,9 @@
       <line num="11" type="stmt" count="0"/>
       <line num="12" type="stmt" count="0"/>
       <line num="13" type="stmt" count="0"/>
-      <metrics loc="16" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="11" coveredelements="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <metrics loc="68" ncloc="68" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="12" coveredelements="0"/>
     </file>
-    <metrics files="8" loc="588" ncloc="506" classes="6" methods="37" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="247" coveredstatements="206" elements="284" coveredelements="234"/>
+    <metrics files="8" loc="640" ncloc="564" classes="6" methods="37" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="248" coveredstatements="206" elements="285" coveredelements="234"/>
   </project>
 </coverage>

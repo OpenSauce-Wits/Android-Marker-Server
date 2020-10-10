@@ -38,13 +38,29 @@ class TableFilter extends AbstractTable
     }
 
     /**
+     * Returns the an associative array keyed by columns for the given row.
+     *
+     * @param int $row
+     *
+     * @return array
+     */
+    public function getRow($row)
+    {
+        $this->loadData();
+
+        return parent::getRow($row);
+    }
+
+    /**
      * Returns the number of rows in this table.
      *
      * @return int
      */
     public function getRowCount()
     {
-        return $this->originalTable->getRowCount();
+        $this->loadData();
+
+        return parent::getRowCount();
     }
 
     /**
@@ -119,8 +135,10 @@ class TableFilter extends AbstractTable
     {
         if ($this->data === null) {
             $data = [];
+
             for ($row = 0; $row < $this->originalTable->getRowCount(); $row++) {
                 $tRow = [];
+
                 foreach ($this->getTableMetaData()->getColumns() as $col) {
                     $tRow[$col] = $this->getValue($row, $col);
                 }

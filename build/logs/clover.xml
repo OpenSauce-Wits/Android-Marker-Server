@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1601734385">
-  <project timestamp="1601734385">
+<coverage generated="1601365980">
+  <project timestamp="1601365980">
     <package name="androidMarker">
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/DatabaseHelper.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/testCoverage2/androidMarker/DatabaseHelper.php">
         <class name="androidMarker\DatabaseHelper" namespace="androidMarker">
           <metrics complexity="22" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="47" elements="59" coveredelements="49"/>
         </class>
-        <line num="9" type="method" name="__construct" visibility="public" complexity="2" crap="2.15" count="7"/>
-        <line num="12" type="stmt" count="7"/>
-        <line num="13" type="stmt" count="6"/>
+        <line num="9" type="method" name="__construct" visibility="public" complexity="2" crap="2.15" count="4"/>
+        <line num="12" type="stmt" count="4"/>
+        <line num="13" type="stmt" count="3"/>
         <line num="14" type="stmt" count="1"/>
         <line num="15" type="stmt" count="0"/>
         <line num="16" type="stmt" count="0"/>
-        <line num="19" type="stmt" count="6"/>
+        <line num="19" type="stmt" count="3"/>
         <line num="50" type="method" name="insert_record" visibility="public" complexity="5" crap="5.00" count="1"/>
         <line num="52" type="stmt" count="1"/>
         <line num="53" type="stmt" count="1"/>
@@ -63,48 +63,11 @@
         <line num="136" type="stmt" count="0"/>
         <line num="137" type="stmt" count="0"/>
         <line num="139" type="stmt" count="1"/>
-        <line num="142" type="method" name="getConnectionMessage" visibility="public" complexity="1" crap="1" count="4"/>
-        <line num="144" type="stmt" count="4"/>
+        <line num="142" type="method" name="getConnectionMessage" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="144" type="stmt" count="1"/>
         <metrics loc="152" ncloc="115" classes="1" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="53" coveredstatements="47" elements="59" coveredelements="49"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/FileManager.php">
-        <class name="androidMarker\FileManager" namespace="androidMarker">
-          <metrics complexity="9" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="23" elements="29" coveredelements="29"/>
-        </class>
-        <line num="4" type="stmt" count="0"/>
-        <line num="8" type="stmt" count="0"/>
-        <line num="18" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="20" type="stmt" count="3"/>
-        <line num="21" type="stmt" count="3"/>
-        <line num="22" type="stmt" count="3"/>
-        <line num="23" type="stmt" count="3"/>
-        <line num="24" type="stmt" count="3"/>
-        <line num="25" type="stmt" count="3"/>
-        <line num="27" type="method" name="getConnectionMessage" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="29" type="stmt" count="1"/>
-        <line num="32" type="method" name="getJSONName" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="34" type="stmt" count="2"/>
-        <line num="36" type="method" name="getTable" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="37" type="stmt" count="2"/>
-        <line num="40" type="method" name="generateEncodedJSON" visibility="public" complexity="2" crap="2" count="2"/>
-        <line num="42" type="stmt" count="2"/>
-        <line num="43" type="stmt" count="2"/>
-        <line num="44" type="stmt" count="2"/>
-        <line num="45" type="stmt" count="2"/>
-        <line num="46" type="stmt" count="2"/>
-        <line num="47" type="stmt" count="2"/>
-        <line num="49" type="stmt" count="2"/>
-        <line num="52" type="method" name="createJSONFile" visibility="public" complexity="3" crap="3" count="1"/>
-        <line num="54" type="stmt" count="1"/>
-        <line num="55" type="stmt" count="1"/>
-        <line num="56" type="stmt" count="1"/>
-        <line num="58" type="stmt" count="1"/>
-        <line num="59" type="stmt" count="1"/>
-        <line num="60" type="stmt" count="1"/>
-        <line num="61" type="stmt" count="1"/>
-        <metrics loc="66" ncloc="63" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="23" elements="31" coveredelements="29"/>
-      </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/lib.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/testCoverage2/androidMarker/lib.php">
         <class name="androidMarker\lib" namespace="androidMarker">
           <metrics complexity="12" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="40" coveredelements="36"/>
         </class>
@@ -152,7 +115,7 @@
       </file>
     </package>
     <package name="androidMarker\Test">
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/DatabaseHelperTest.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/testCoverage2/androidMarker/Test/DatabaseHelperTest.php">
         <class name="androidMarker\Test\DatabaseHelperTest" namespace="androidMarker\Test">
           <metrics complexity="9" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="38" elements="48" coveredelements="44"/>
         </class>
@@ -206,50 +169,7 @@
         <line num="92" type="stmt" count="1"/>
         <metrics loc="94" ncloc="86" classes="1" methods="7" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="38" elements="48" coveredelements="44"/>
       </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/FileManagerTest.php">
-        <class name="androidMarker\Test\FileManagerTest" namespace="androidMarker\Test">
-          <metrics complexity="8" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="37" coveredelements="37"/>
-        </class>
-        <line num="20" type="method" name="setUp" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="22" type="stmt" count="3"/>
-        <line num="23" type="stmt" count="3"/>
-        <line num="24" type="stmt" count="3"/>
-        <line num="25" type="stmt" count="3"/>
-        <line num="26" type="stmt" count="3"/>
-        <line num="27" type="stmt" count="3"/>
-        <line num="28" type="stmt" count="3"/>
-        <line num="29" type="stmt" count="3"/>
-        <line num="30" type="stmt" count="3"/>
-        <line num="31" type="stmt" count="3"/>
-        <line num="32" type="stmt" count="3"/>
-        <line num="33" type="stmt" count="3"/>
-        <line num="34" type="stmt" count="3"/>
-        <line num="37" type="method" name="getConnection" visibility="public" complexity="3" crap="3" count="3"/>
-        <line num="40" type="stmt" count="3"/>
-        <line num="41" type="stmt" count="3"/>
-        <line num="42" type="stmt" count="1"/>
-        <line num="44" type="stmt" count="3"/>
-        <line num="46" type="stmt" count="3"/>
-        <line num="49" type="method" name="getDataSet" visibility="protected" complexity="1" crap="1" count="3"/>
-        <line num="52" type="stmt" count="3"/>
-        <line num="55" type="method" name="testGetConnectMessage" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="57" type="stmt" count="1"/>
-        <line num="58" type="stmt" count="1"/>
-        <line num="59" type="stmt" count="1"/>
-        <line num="61" type="stmt" count="1"/>
-        <line num="63" type="method" name="testSelectAllReturnsEncodedJSON" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="64" type="stmt" count="1"/>
-        <line num="65" type="stmt" count="1"/>
-        <line num="66" type="stmt" count="1"/>
-        <line num="67" type="stmt" count="1"/>
-        <line num="68" type="method" name="testCreateJSONFileWorks" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="69" type="stmt" count="1"/>
-        <line num="70" type="stmt" count="1"/>
-        <line num="71" type="stmt" count="1"/>
-        <line num="72" type="stmt" count="1"/>
-        <metrics loc="72" ncloc="62" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="31" elements="37" coveredelements="37"/>
-      </file>
-      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/Test/libTest.php">
+      <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/testCoverage2/androidMarker/Test/libTest.php">
         <class name="androidMarker\Test\libTest" namespace="androidMarker\Test">
           <metrics complexity="8" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="35" elements="43" coveredelements="39"/>
         </class>
@@ -299,7 +219,9 @@
         <metrics loc="76" ncloc="76" classes="1" methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="35" elements="43" coveredelements="39"/>
       </file>
     </package>
-    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/config.php">
+    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/testCoverage2/androidMarker/config.php">
+      <line num="4" type="stmt" count="0"/>
+      <line num="5" type="stmt" count="0"/>
       <line num="7" type="stmt" count="0"/>
       <line num="9" type="stmt" count="0"/>
       <line num="10" type="stmt" count="0"/>
@@ -311,24 +233,17 @@
       <line num="17" type="stmt" count="0"/>
       <line num="18" type="stmt" count="0"/>
       <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
       <line num="26" type="stmt" count="0"/>
       <line num="27" type="stmt" count="0"/>
       <line num="28" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
-      <metrics loc="30" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="15" coveredelements="0"/>
+      <metrics loc="30" ncloc="26" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="0" elements="22" coveredelements="0"/>
     </file>
-    <file name="/home/molefe/Learning/Playground/Projects/OpenSauce/Android-Marker-Server_2/Android-Marker-Server/androidMarker/index.php">
-      <line num="3" type="stmt" count="0"/>
-      <line num="4" type="stmt" count="0"/>
-      <line num="5" type="stmt" count="0"/>
-      <line num="6" type="stmt" count="0"/>
-      <line num="7" type="stmt" count="0"/>
-      <line num="8" type="stmt" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <metrics loc="16" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="9" coveredelements="0"/>
-    </file>
-    <metrics files="8" loc="588" ncloc="502" classes="6" methods="37" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="245" coveredstatements="206" elements="282" coveredelements="234"/>
+    <metrics files="5" loc="434" ncloc="373" classes="4" methods="25" coveredmethods="16" conditionals="0" coveredconditionals="0" statements="187" coveredstatements="152" elements="212" coveredelements="168"/>
   </project>
 </coverage>
